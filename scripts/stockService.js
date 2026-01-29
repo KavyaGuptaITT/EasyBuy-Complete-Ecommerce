@@ -1,5 +1,5 @@
 import { storage } from "./storageService.js";
-import { STRINGS } from "./strings.js";
+import { STRINGS } from "./constantStrings.js";
 
 const STOCK_KEY = STRINGS.KEY_STOCK;
 
@@ -7,10 +7,8 @@ export const stockService = {
   initializeStock(products) {
     const existing = storage.get(STOCK_KEY);
     if (existing) return;
-
     const initialStock = {};
     products.forEach((p) => (initialStock[p.id] = p.stock || 10));
-
     storage.save(STOCK_KEY, initialStock);
   },
 

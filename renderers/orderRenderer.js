@@ -1,6 +1,5 @@
 export function renderOrders(orders, container) {
-  container.innerHTML = "";
-
+  container.innerHTML = STRINGS.EMPTY_STRING;
   if (!orders || orders.length === 0) {
     container.innerHTML = `<p class="empty-cart-message">No orders placed yet.</p>`;
     return;
@@ -9,9 +8,9 @@ export function renderOrders(orders, container) {
     .slice()
     .reverse()
     .forEach((order) => {
-      const card = document.createElement("div");
+      const card = document.createElement(STRINGS.ELEMENTS.div);
       card.className = "order-card";
-      let itemsHTML = "";
+      let itemsHTML = STRINGS.EMPTY_STRING;
       order.items.forEach((item) => {
         itemsHTML += `
         <div class="order-item">
@@ -23,9 +22,7 @@ export function renderOrders(orders, container) {
       card.innerHTML = `
       <h3>Order #${order.id}</h3>
       <p><strong>Date:</strong> ${order.date} • ${order.time}</p>
-
       <div class="order-items-box">${itemsHTML}</div>
-
       <p class="order-total"><strong>Total Paid:</strong> ₹${order.total}</p>
     `;
       container.appendChild(card);

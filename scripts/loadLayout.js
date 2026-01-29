@@ -3,14 +3,12 @@ window.loadLayout = function (callback) {
     .then((res) => res.text())
     .then((html) => {
       document.getElementById("header").innerHTML = html;
-
       const currentPage =
         window.location.pathname.split("/").pop().replace(".html", "") ||
         "index";
       document.querySelectorAll(".nav-menu a").forEach((link) => {
         if (link.dataset.page === currentPage) link.classList.add("active");
       });
-
       if (callback) callback();
     });
 

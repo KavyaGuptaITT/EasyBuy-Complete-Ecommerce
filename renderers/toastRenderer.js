@@ -2,12 +2,12 @@ export function showToast(message, type = "success") {
   const toastContainerId = "toast-container";
   let container = document.getElementById(toastContainerId);
   if (!container) {
-    container = document.createElement("div");
+    container = document.createElement(STRINGS.ELEMENTS.div);
     container.id = toastContainerId;
     container.className = "toast-container position-fixed top-0 end-0 p-3";
     document.body.appendChild(container);
   }
-  const toast = document.createElement("div");
+  const toast = document.createElement(STRINGS.ELEMENTS.div);
   toast.className = `toast align-items-center text-bg-${type} border-0 show`;
   toast.role = "alert";
   toast.innerHTML = `
@@ -19,5 +19,5 @@ export function showToast(message, type = "success") {
   container.appendChild(toast);
   setTimeout(() => {
     toast.remove();
-  }, 3000);
+  }, 1000);
 }

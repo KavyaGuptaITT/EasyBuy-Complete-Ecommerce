@@ -1,5 +1,5 @@
 import { storage } from "./storageService.js";
-import { STRINGS } from "./strings.js";
+import { STRINGS } from "./constantStrings.js";
 
 const ORDERS_KEY = STRINGS.KEY_ORDERS;
 
